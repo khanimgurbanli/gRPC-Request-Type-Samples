@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+option csharp_namespace = "grpc_MessageServer";
+
+package message;
+
+/* -------- UNARY TYPE EXAMPLE ---------
+service Message {
+rpc Send (MessageRequest) returns (MessageResponse);
+}
+*/
+
+/* -------- SERVER STREAMLING TYPE EXAMPLE ---------
+service Message {
+rpc Send (MessageRequest) returns (stream MessageResponse);
+}
+*/
+
+/* -------- CLIENT STREAMLING TYPE EXAMPLE ---------
+service Message {
+rpc Send (stream MessageRequest) returns (MessageResponse);
+}
+*/  
+
+/* -------- BI DIRECTIONAL STREAMING TYPE EXAMPLE ---------
+*/
+service Message {
+rpc Send (stream MessageRequest) returns (stream MessageResponse);
+}
+
+
+message MessageRequest {
+  string name = 1;
+  string message = 2;
+}
+
+message MessageResponse {
+  string message = 1;
+}
